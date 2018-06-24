@@ -1,7 +1,7 @@
 from random import *
 from tkinter import *
 
-global window_width, window_height, current_time
+global window_width, window_height
 
 window_width = 600
 window_height = 600
