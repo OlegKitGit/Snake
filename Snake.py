@@ -42,7 +42,7 @@ class Snake():
             Apple.position = [randint(20, window_width-20), randint(20, window_height-20)] 
             canvas.coords(Apple.apple, Apple.position[0],  Apple.position[1], Apple.position[0] + 5, Apple.position[1] + 5)
         if [x1,y1] in Wall.position:
-                canvas.create_text(window_width/2, window_height/2, text="GAME OVER!", font="Arial 20", fill="green")
+                canvas.create_text(window_width/2, window_height/2, text="GAME OVER", font="Arial 20", fill="green")
         canvas.after(150, self.update)
 
 
