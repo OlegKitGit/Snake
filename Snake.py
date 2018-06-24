@@ -12,7 +12,8 @@ class Snake():
     def __init__(self, root):
         self.length = 20
         self.width = 20
-        self.position = [randint(10+3*self.length,window_width-10), randint(self.width+10,window_height-10)]                  
+        self.position = [100, 100]
+        #self.position = [randint(10+3*self.length,window_width-10), randint(self.width+10,window_height-10)]                  
         root.bind('<Left>', self.leftKey)
         root.bind('<Right>', self.rightKey)
         root.bind('<Up>', self.upKey)
@@ -40,8 +41,8 @@ class Snake():
             self.snake.append(snake_rect)
             Apple.position = [randint(20, window_width-20), randint(20, window_height-20)] 
             canvas.coords(Apple.apple, Apple.position[0],  Apple.position[1], Apple.position[0] + 5, Apple.position[1] + 5)
-        if [x1, y1] in Wall.position:
-            print("Game Over")
+        if [x1,y1] in Wall.position:
+                canvas.create_text(window_width/2, window_height/2, text="GAME OVER!", font="Arial 20", fill="green")
         canvas.after(150, self.update)
 
 
@@ -86,7 +87,6 @@ class Wall():
                     canvas.create_rectangle(i, j, i + 10, j + 10, fill = 'green')
                 if i % 10 == 0 and j == window_height:
                     canvas.create_rectangle(i, j, i + 10, j - 10, fill = 'green')
-        
 
 
 root = Tk()
@@ -97,4 +97,3 @@ Wall = Wall()
 Apple = Apple()
 canvas.after(10, Snake.update)
 root.mainloop()
-
